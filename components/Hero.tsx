@@ -48,11 +48,8 @@ const Hero: React.FC = () => {
               }}
             />
           </h1>
-          <p className="text-xl md:text-2xl font-semibold text-gray-800 max-w-4xl mx-auto leading-snug">
+          <p className="text-2xl md:text-4xl font-bold text-gray-800 max-w-4xl mx-auto leading-snug">
             TActile World Model as a Self-COrrector for Scalable VLA Post-Training
-          </p>
-          <p className="mt-4 text-base md:text-lg text-gray-600 max-w-3xl mx-auto">
-            TACO is a tactile-aware world-model framework that turns real-world robot failures into imagined visuo-tactile corrections for scalable VLA post-training.
           </p>
         </div>
 

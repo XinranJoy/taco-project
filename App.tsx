@@ -69,15 +69,15 @@ const SUCCESS_ROLLOUTS = [
 ];
 
 const OOD_FLOWER = [
-  { file: 'flower_pink.mp4', label: 'Pink' },
-  { file: 'flower_yellow.mp4', label: 'Yellow' },
-  { file: 'flower_flash.mp4', label: 'Flash' },
+  { file: 'flower_flash.mp4', label: 'Unseen Background' },
+  { file: 'flower_yellow.mp4', label: 'Unseen Object' },
+  { file: 'flower_pink.mp4', label: 'Unseen Position' },
 ];
 
 const OOD_WHITEBOARD = [
-  { file: 'whiteboard.mp4', label: 'Whiteboard' },
-  { file: 'whiteboard_position.mp4', label: 'Position' },
-  { file: 'whiteboard_flash.mp4', label: 'Flash' },
+  { file: 'whiteboard_flash.mp4', label: 'Unseen Background' },
+  { file: 'whiteboard.mp4', label: 'Unseen Object' },
+  { file: 'whiteboard_position.mp4', label: 'Unseen Position' },
 ];
 
 const TABLE_COLS = [
@@ -270,17 +270,20 @@ const VideoCard: React.FC<{ src: string; title: string; small?: boolean }> = ({ 
 
   return (
     <div className="rounded-2xl overflow-hidden shadow-sm" style={{background:'rgba(255,255,255,0.10)',backdropFilter:'blur(10px)',WebkitBackdropFilter:'blur(10px)',border:'1px solid rgba(255,255,255,0.40)'}}>
-      <video
-        ref={videoRef}
-        controls
-        muted
-        playsInline
-        loop
-        className={`w-full aspect-video object-cover bg-black`}
-        src={src}
-      >
-        <source src={src} type="video/mp4" />
-      </video>
+      <div className="relative">
+        <video
+          ref={videoRef}
+          controls
+          muted
+          playsInline
+          loop
+          className={`w-full aspect-video object-cover bg-black`}
+          src={src}
+        >
+          <source src={src} type="video/mp4" />
+        </video>
+        <span className="absolute bottom-2 right-2 text-xs font-semibold text-white px-1.5 py-0.5 rounded pointer-events-none" style={{background:'rgba(0,0,0,0.55)'}}>2× speed</span>
+      </div>
       <p className={`px-3 py-2 text-center font-medium text-gray-700 ${small ? 'text-xs' : 'text-sm'}`}>{title}</p>
     </div>
   );
@@ -400,8 +403,8 @@ const App: React.FC = () => {
               <div className="text-3xl font-bold text-gray-700">6</div>
               <div className="text-xs text-gray-500 leading-tight mt-1">Real-world tasks</div>
             </div>
-            <div className="w-28 h-28 rounded-full flex flex-col items-center justify-center text-center p-3 -mt-2 shadow-sm" style={{background:'rgba(255,255,255,0.12)',backdropFilter:'blur(10px)',WebkitBackdropFilter:'blur(10px)',border:'2px solid rgba(255,255,255,0.38)'}}>
-              <div className="text-2xl font-bold text-gray-600">+32%</div>
+            <div className="w-36 h-36 rounded-full flex flex-col items-center justify-center text-center p-3 -mt-2 shadow-md" style={{background:'rgba(255,228,240,0.22)',backdropFilter:'blur(10px)',WebkitBackdropFilter:'blur(10px)',border:'2px solid rgba(255,150,200,0.35)'}}>
+              <div className="text-3xl font-bold text-pink-500">+32%</div>
               <div className="text-xs text-gray-500 leading-tight mt-1">Over TACO (w/o KI)</div>
             </div>
             <div className="w-40 h-40 rounded-full flex flex-col items-center justify-center text-center p-3 shadow-md" style={{background:'rgba(224,246,255,0.22)',backdropFilter:'blur(10px)',WebkitBackdropFilter:'blur(10px)',border:'2px solid rgba(103,210,255,0.30)'}}>
@@ -534,18 +537,19 @@ const App: React.FC = () => {
                 </tbody>
               </table>
             </div>
-            {/* Action Distribution */}
-            <div className="mt-8">
-              <img
-                src={`${BASE}assets/img/paper_img/action_distribution_v3.png`}
-                alt="Action Distribution"
-                className="w-full max-w-4xl mx-auto block rounded-lg"
-              />
-            </div>
           </div>
         </Section>
 
-        {/* ── 7. Citation ── */}
+        {/* ── 7. Action Distribution Analysis ── */}
+        <Section id="action-dist" title="Action Distribution Analysis">
+          <img
+            src={`${BASE}assets/img/paper_img/action_distribution_v3.png`}
+            alt="Action Distribution"
+            className="w-full max-w-4xl mx-auto block rounded-lg"
+          />
+        </Section>
+
+        {/* ── 8. Citation ── */}
         <Section id="bibtex" title="Citation">
           <div className="relative group">
             <pre className="p-6 rounded-xl overflow-x-auto text-sm text-gray-700 font-mono whitespace-pre" style={{background:'rgba(255,255,255,0.10)',backdropFilter:'blur(8px)',WebkitBackdropFilter:'blur(8px)',border:'1px solid rgba(255,255,255,0.38)'}}>
