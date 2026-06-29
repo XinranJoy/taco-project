@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
+const BASE = import.meta.env.BASE_URL;
+
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -35,14 +37,14 @@ const Navbar: React.FC = () => {
           {/* Logo */}
           <a href="#hero" className="flex-shrink-0 flex items-center gap-2 group">
             <img
-              src="/assets/design/taco_whiteBG.png"
+              src={`${BASE}assets/design/taco_whiteBG.png`}
               alt=""
               className="h-9 w-auto transition-transform duration-200 group-hover:scale-110"
               draggable={false}
             />
             {/* TACO_logo: iridescent TACO wordmark (3.45:1 ratio) */}
             <img
-              src="/assets/design/TACO_logo.png"
+              src={`${BASE}assets/design/TACO_logo.png`}
               alt="TACO"
               className="h-7 w-auto"
               draggable={false}

@@ -3,6 +3,8 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Section from './components/Section';
 
+const BASE = import.meta.env.BASE_URL;
+
 // ── Static data ────────────────────────────────────────────────────────────
 
 const BIBTEX = `@article{liu2026taco,
@@ -152,9 +154,9 @@ const TABLE_ROWS: TableRow[] = [
 type TacoParticle = { id: number; x: number; y: number; src: string };
 
 const TACO_IMGS = [
-  '/assets/design/flash_taco.png',
-  '/assets/design/pink_taco.png',
-  '/assets/design/taco_whiteBG.png',
+  `${BASE}assets/design/flash_taco.png`,
+  `${BASE}assets/design/pink_taco.png`,
+  `${BASE}assets/design/taco_whiteBG.png`,
 ];
 
 const TacoSpawner: React.FC = () => {
@@ -357,7 +359,7 @@ const App: React.FC = () => {
           {/* Pipeline figure */}
           <div className="text-center mb-10">
             <img
-              src="/assets/img/paper_img/pipeline_v5.png"
+              src={`${BASE}assets/img/paper_img/pipeline_v5.png`}
               alt="TACO Pipeline"
               className="w-full max-w-5xl mx-auto rounded-lg"
             />
@@ -399,8 +401,8 @@ const App: React.FC = () => {
               <div className="text-xs text-gray-500 leading-tight mt-1">Real-world tasks</div>
             </div>
             <div className="w-28 h-28 rounded-full flex flex-col items-center justify-center text-center p-3 -mt-2 shadow-sm" style={{background:'rgba(255,255,255,0.12)',backdropFilter:'blur(10px)',WebkitBackdropFilter:'blur(10px)',border:'2px solid rgba(255,255,255,0.38)'}}>
-              <div className="text-2xl font-bold text-gray-600">40</div>
-              <div className="text-xs text-gray-500 leading-tight mt-1">Episodes per task</div>
+              <div className="text-2xl font-bold text-gray-600">+32%</div>
+              <div className="text-xs text-gray-500 leading-tight mt-1">Over TACO (w/o KI)</div>
             </div>
             <div className="w-40 h-40 rounded-full flex flex-col items-center justify-center text-center p-3 shadow-md" style={{background:'rgba(224,246,255,0.22)',backdropFilter:'blur(10px)',WebkitBackdropFilter:'blur(10px)',border:'2px solid rgba(103,210,255,0.30)'}}>
               <div className="text-4xl font-bold text-brand-cyan">82%</div>
@@ -423,7 +425,7 @@ const App: React.FC = () => {
               {SUCCESS_ROLLOUTS.map((v) => (
                 <VideoCard
                   key={v.file}
-                  src={`/assets/img/experiment_process/success_rollout/${v.file}`}
+                  src={`${BASE}assets/img/experiment_process/success_rollout/${v.file}`}
                   title={v.title}
                 />
               ))}
@@ -441,7 +443,7 @@ const App: React.FC = () => {
                   <VideoCard
                     key={v.file}
                     small
-                    src={`/assets/img/experiment_process/ood/${v.file}`}
+                    src={`${BASE}assets/img/experiment_process/ood/${v.file}`}
                     title={v.label}
                   />
                 ))}
@@ -455,7 +457,7 @@ const App: React.FC = () => {
                   <VideoCard
                     key={v.file}
                     small
-                    src={`/assets/img/experiment_process/ood/${v.file}`}
+                    src={`${BASE}assets/img/experiment_process/ood/${v.file}`}
                     title={v.label}
                   />
                 ))}
@@ -535,7 +537,7 @@ const App: React.FC = () => {
             {/* Action Distribution */}
             <div className="mt-8">
               <img
-                src="/assets/img/paper_img/action_distribution_v3.png"
+                src={`${BASE}assets/img/paper_img/action_distribution_v3.png`}
                 alt="Action Distribution"
                 className="w-full max-w-4xl mx-auto block rounded-lg"
               />

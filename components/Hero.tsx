@@ -1,12 +1,14 @@
 import React from 'react';
 import { Author, Affiliation, LinkButton } from '../types';
 
+const BASE = import.meta.env.BASE_URL;
+
 const AUTHORS: Author[] = [
   { name: "Shengbang Liu", url: "https://liushb9.github.io/",          affiliations: [1, 3], isEqualContribution: true },
   { name: "Yueru Jia",     url: "https://jiayueru.github.io/",         affiliations: [1, 2], isEqualContribution: true },
   { name: "Yuyang Yan",    url: "https://github.com/avx34/",           affiliations: [1],    isEqualContribution: true },
   { name: "Jiaming Liu",   url: "https://liujiaming1996.github.io/",   affiliations: [1],    isEqualContribution: true, isCorresponding: true },
-  { name: "Xinran Zhang",  url: "https://github.com/XinranJoy",        affiliations: [1, 2] },
+  { name: "Xinran Zhang",  url: "https://github.com/XinranJoy",        affiliations: [1, 2], isEqualContribution: true },
   { name: "Qiuxuan Feng",  url: "https://github.com/xuanxuanzzzii",    affiliations: [1] },
   { name: "Yandong Guo",   url: "https://scholar.google.com/citations?user=fWDoWsQAAAAJ&hl=en", affiliations: [2] },
   { name: "Shiji Zhou",    url: "https://arnoldshijizhou.github.io/",  affiliations: [4] },
@@ -37,7 +39,7 @@ const Hero: React.FC = () => {
         <div className="mb-8">
           <h1 className="mb-3">
             <img
-              src="/assets/design/TACO_title.png"
+              src={`${BASE}assets/design/TACO_title.png`}
               alt="TACO"
               className="h-36 md:h-48 w-auto mx-auto select-none"
               draggable={false}
@@ -95,15 +97,20 @@ const Hero: React.FC = () => {
 
           {/* Affiliations */}
           <div className="text-sm text-gray-500">
-            {AFFILIATIONS.map((aff, i) => (
-              <span key={aff.id}>
-                <sup className="text-violet-500 font-semibold mr-0.5">{aff.id}</sup>
-                {aff.name}
-                {i < AFFILIATIONS.length - 1 && (
-                  <span className="mx-2 text-gray-300">·</span>
-                )}
-              </span>
-            ))}
+            {/* PKU lab on its own line */}
+            <div className="mb-1">
+              <sup className="text-violet-500 font-semibold mr-0.5">1</sup>
+              {AFFILIATIONS[0].name}
+            </div>
+            {/* remaining affiliations inline */}
+            <div className="flex flex-wrap justify-center gap-x-3 gap-y-0.5">
+              {AFFILIATIONS.slice(1).map((aff) => (
+                <span key={aff.id}>
+                  <sup className="text-violet-500 font-semibold mr-0.5">{aff.id}</sup>
+                  {aff.name}
+                </span>
+              ))}
+            </div>
           </div>
 
           {/* Legend */}
@@ -151,23 +158,6 @@ const Hero: React.FC = () => {
           )}
         </div>
 
-        {/* Keywords */}
-        <div className="flex gap-2 justify-center">
-          {['Robotic Manipulation', 'Tactile World Model'].map((kw) => (
-            <span
-              key={kw}
-              className="text-xs px-3 py-1 rounded-full text-violet-600 font-medium"
-              style={{
-                background: 'rgba(255,255,255,0.55)',
-                backdropFilter: 'blur(6px)',
-                WebkitBackdropFilter: 'blur(6px)',
-                border: '1px solid rgba(167,139,250,0.40)',
-              }}
-            >
-              {kw}
-            </span>
-          ))}
-        </div>
 
       </div>
     </section>
