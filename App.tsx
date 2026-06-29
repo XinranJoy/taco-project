@@ -432,7 +432,7 @@ const App: React.FC = () => {
 
           {/* Generalization */}
           <div className="mb-10">
-            <h3 className="text-base font-semibold text-gray-800 mb-5">Generalization Performance</h3>
+            <h3 className="text-2xl font-bold text-gray-800 mb-5 text-center">Generalization Performance</h3>
 
             <div className="mb-5">
               <p className="text-sm font-medium text-gray-600 mb-3">Insert Flower</p>
