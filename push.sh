@@ -3,4 +3,4 @@
 git add .
 git commit -m "Update" 2>/dev/null || true
 git push -u origin master
-echo "Done: https://github.com/XinranJoy/taco-project"
+echo "Done: https://github.com/taco-wm/taco-wm.github.io"
