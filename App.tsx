@@ -8,11 +8,11 @@ const BASE = import.meta.env.BASE_URL;
 // ── Static data ────────────────────────────────────────────────────────────
 
 const BIBTEX = `@article{liu2026taco,
-  title={TACO: TActile World Model as a Self-COrrector for Scalable VLA Post-Training},
-  author={Liu, Shengbang and Jia, Yueru and Yan, Yuyang and Liu, Jiaming and Zhang, Xinran and Feng, Qiuxuan and Guo, Yandong and Zhou, Shiji and Shi, Boxin and Zhang, Shanghang},
-  journal={arXiv preprint},
-  year={2026}
-}`;
+     title={TACO: TActile World Model as a Self-COrrector forScalable VLA Post-Training},
+     author={Liu, Shengbang and Jia, Yueru and Yan, Yuyang and Liu, Jiaming and Zhang, Xinran and Feng, Qiuxuan and Guo, Yandong and Zhou, Shiji and Shi, Boxin and Zhang, Shanghang},
+     journal={arXiv preprint arXiv:2607.02840},
+     year={2026}
+   }`;
 
 const CONTRIBUTIONS = [
   {

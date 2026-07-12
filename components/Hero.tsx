@@ -24,7 +24,7 @@ const AFFILIATIONS: Affiliation[] = [
 ];
 
 const LINKS: LinkButton[] = [
-  { label: "Paper",   iconClass: "fas fa-file-pdf",    url: "", comingSoon: true },
+  { label: "Paper",   iconClass: "fas fa-file-pdf",    url: "https://arxiv.org/abs/2607.02840" },
   { label: "Code",    iconClass: "fab fa-github",       url: "https://github.com/liushb9/TACO" },
   { label: "Video",   iconClass: "fas fa-video",        url: "https://youtu.be/bVZEjTBP0Rk" },
   { label: "BibTeX",  iconClass: "fas fa-quote-right",  url: "#bibtex" },
